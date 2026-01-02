@@ -1,0 +1,20 @@
+@100  = ~Przekute Bronie – Opcje Podstawowe~
+@1000 = ~Usuń wszystkie ograniczenia klasowe dotyczące broni (Użyteczność przedmiotów)~
+@1001 = ~Wszystkie klasy mogą używać wszystkich broni (Użyteczność klas / Mnisi wykluczeni)~
+
+@101  = ~Uniwersalne Opcje Broni (Bez ograniczeń klasowych, Mnisi i Kensai wykluczeni)~
+@1010 = ~Uniwersalne Biegłości: Minimum 1 Punkt (Biegłość)~
+@1020 = ~Uniwersalne Biegłości: Minimum 2 Punkty (Specjalizacja)~
+@1030 = ~Uniwersalne Biegłości: Minimum 3 Punkty (Mistrzostwo)~
+@1040 = ~Uniwersalne Biegłości: Minimum 4 Punkty (Wysokie Mistrzostwo)~
+@1050 = ~Uniwersalne Biegłości: Minimum 5 Punktów (Wielkie Mistrzostwo)~
+@1500 = ~Usunięto Limity Stylów Walki (2/2/2/3 [Wszystkie Klasy] Mnisi i Kensai wykluczeni)~
+
+@200  = ~Zaawansowane Opcje Broni (Standardowe Ograniczenia Klasowe)~
+@2020 = ~Standardowe Ograniczenia: Maksymalnie 2 Punkty (Specjalizacja)~
+@2030 = ~Standardowe Ograniczenia: Maksymalnie 3 Punkty (Mistrzostwo)~
+@2040 = ~Standardowe Ograniczenia: Maksymalnie 4 Punkty (Wysokie Mistrzostwo)~
+@2050 = ~Standardowe Ograniczenia: Maksymalnie 5 Punktów (Wielkie Mistrzostwo)~
+
+@9000 = ~Ten komponent wymaga Enhanced Editions lub EET.~
+@9001 = ~Można zainstalować tylko jedną opcję Uniwersalnych Biegłości.~

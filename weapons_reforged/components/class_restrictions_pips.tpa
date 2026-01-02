@@ -1,0 +1,53 @@
+// class_restrictions_pips.tpa
+
+DEFINE_PATCH_FUNCTION ~class_restrictions_pips~
+  INT_VAR
+    min_pips = 1
+BEGIN
+  COUNT_2DA_COLS cols
+  COUNT_2DA_ROWS cols rows
+
+  // 1. Identify Restricted Columns (Modular Detection)
+  SET col_kensai = (0 - 1)
+  SET col_monk   = (0 - 1)
+  SET col_start  = 4 // Data starts at MAGE
+
+  FOR (c = 1; c < cols; c += 1) BEGIN
+    READ_2DA_ENTRY 0 (c - 1) (cols - 1) header
+    PATCH_IF (~%header%~ STRING_EQUAL_CASE ~KENSAI~) BEGIN SET col_kensai = c END
+    PATCH_IF (~%header%~ STRING_EQUAL_CASE ~MONK~)   BEGIN SET col_monk = c END
+  END
+
+  // 2. Identify Target Row Range (Modular Detection)
+  SET first_row = (0 - 1)
+  SET last_row  = (0 - 1)
+
+  FOR (r = 0; r < rows; r += 1) BEGIN
+    READ_2DA_ENTRY r 0 cols label
+    PATCH_IF (~%label%~ STRING_EQUAL_CASE ~BASTARDSWORD~) BEGIN SET first_row = r END
+    PATCH_IF (~%label%~ STRING_EQUAL_CASE ~SLING~)        BEGIN SET last_row = r END
+  END
+
+  // 3. Execution (Threshold Logic)
+  PATCH_IF (first_row >= 0 AND last_row >= first_row) BEGIN
+    FOR (curr_r = first_row; curr_r <= last_row; curr_r += 1) BEGIN
+      FOR (curr_c = col_start; curr_c < cols; curr_c += 1) BEGIN
+        
+        // Skip Kensai and Monk entirely
+        PATCH_IF (curr_c != col_kensai AND curr_c != col_monk) BEGIN
+          READ_2DA_ENTRY curr_r curr_c cols val
+          
+          PATCH_IF (IS_AN_INT val) BEGIN
+            // Only modify if it's NOT a 0, and is less than the requested minimum
+            PATCH_IF (val > 0 AND val < min_pips) BEGIN
+              SET_2DA_ENTRY curr_r curr_c cols ~%min_pips%~
+            END
+          END
+        END
+        
+      END
+    END
+  END
+
+  PRETTY_PRINT_2DA
+END

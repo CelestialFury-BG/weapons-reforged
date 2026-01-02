@@ -1,0 +1,20 @@
+@100  = ~Armes Reforgées – Options de Base~
+@1000 = ~Supprimer toutes les restrictions de classe sur les armes (Utilisabilité des objets)~
+@1001 = ~Toutes les classes peuvent utiliser toutes les armes (Utilisabilité de classe / Moines exclus)~
+
+@101  = ~Options d’Armes Universelles (Aucune restriction de classe, Moines et Kensai exclus)~
+@1010 = ~Compétences Universelles : Minimum 1 Point (Compétent)~
+@1020 = ~Compétences Universelles : Minimum 2 Points (Spécialisé)~
+@1030 = ~Compétences Universelles : Minimum 3 Points (Maîtrise)~
+@1040 = ~Compétences Universelles : Minimum 4 Points (Haute Maîtrise)~
+@1050 = ~Compétences Universelles : Minimum 5 Points (Grande Maîtrise)~
+@1500 = ~Limites de Styles de Combat Supprimées (2/2/2/3 [Toutes Classes] Moines et Kensai exclus)~
+
+@200  = ~Options d’Armes Améliorées (Restrictions de Classe Standard)~
+@2020 = ~Restrictions Standard : Maximum 2 Points (Spécialisé)~
+@2030 = ~Restrictions Standard : Maximum 3 Points (Maîtrise)~
+@2040 = ~Restrictions Standard : Maximum 4 Points (Haute Maîtrise)~
+@2050 = ~Restrictions Standard : Maximum 5 Points (Grande Maîtrise)~
+
+@9000 = ~Ce composant nécessite les Enhanced Editions ou EET.~
+@9001 = ~Une seule option de Compétence Universelle peut être installée.~

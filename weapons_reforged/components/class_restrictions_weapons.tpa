@@ -1,0 +1,35 @@
+COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~
+  PATCH_IF (SOURCE_SIZE > 0x71) BEGIN 
+    READ_SHORT 0x1c category
+
+        // Bows 15, Daggers 16, Maces 17, Slings 18, Small Swords 19, Large Swords 20, Hammers 21, Morning Stars 22, Flails 23, Darts 24,                                    	// Axes 25, Quaterstaves 26, Crossbows 27, Hand-hand weapons 28, Spears 29, Halberds 30, Clubs 44, Rods 51, Greatswords 57
+    PATCH_MATCH category WITH
+      15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 44 51 57 BEGIN
+        
+        // 1. Handle the "Unusable by" block (0x1e - 0x21)
+        // Bit 0: Chaotic      Bit 3: Evil
+        // Bit 1: Lawful       Bit 4: Good
+        // Bit 2: Neutral      Bit 5: Neutral
+        // We use the bitmask 0x3f (binary 00111111) to keep only these bits.
+        
+        READ_LONG 0x1e usability
+        SET new_usability = (usability BAND 0x3f)
+        WRITE_LONG 0x1e new_usability
+
+        // 2. Clear the Kit block (0x2d - 0x30)
+        // Since all alignment bits are in the block above, 
+        // we can safely zero out all 4 bytes of kit restrictions.
+        
+        WRITE_LONG 0x2d 0
+
+        // DEBUG: Track SW2H items
+        // PATCH_IF (~%SOURCE_RES%~ STRING_CONTAINS_REGEXP ~^SW2H~) = 0 BEGIN
+          // PATCH_PRINT ~DEBUG: %SOURCE_FILE% | Usability Hex before: %usability% | after: %new_usability%~
+        // END
+
+      END
+      DEFAULT
+	// Do nothing for categories not in the list
+    END
+  END
+BUT_ONLY

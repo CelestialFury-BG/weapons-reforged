@@ -1,0 +1,20 @@
+@100  = ~Armi Riforgiate – Opzioni Principali~
+@1000 = ~Rimuovi tutte le restrizioni di classe sulle armi (Usabilità degli oggetti)~
+@1001 = ~Tutte le classi possono usare tutte le armi (Usabilità di classe / Monaci esclusi)~
+
+@101  = ~Opzioni Armi Universali (Nessuna restrizione di classe, Monaci e Kensai esclusi)~
+@1010 = ~Competenze Universali: Minimo 1 Punto (Competente)~
+@1020 = ~Competenze Universali: Minimo 2 Punti (Specializzato)~
+@1030 = ~Competenze Universali: Minimo 3 Punti (Maestria)~
+@1040 = ~Competenze Universali: Minimo 4 Punti (Alta Maestria)~
+@1050 = ~Competenze Universali: Minimo 5 Punti (Gran Maestria)~
+@1500 = ~Rimosse le Limitazioni degli Stili di Combattimento (2/2/2/3 [Tutte le Classi] Monaci e Kensai esclusi)~
+
+@200  = ~Opzioni Armi Avanzate (Restrizioni di Classe Standard)~
+@2020 = ~Restrizioni Standard: Massimo 2 Punti (Specializzato)~
+@2030 = ~Restrizioni Standard: Massimo 3 Punti (Maestria)~
+@2040 = ~Restrizioni Standard: Massimo 4 Punti (Alta Maestria)~
+@2050 = ~Restrizioni Standard: Massimo 5 Punti (Gran Maestria)~
+
+@9000 = ~Questo componente richiede le Enhanced Editions o EET.~
+@9001 = ~È possibile installare solo un’opzione di Competenze Universali.~

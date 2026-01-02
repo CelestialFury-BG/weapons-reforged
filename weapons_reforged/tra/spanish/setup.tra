@@ -1,0 +1,20 @@
+@100  = ~Armas Reforjadas – Opciones Básicas~
+@1000 = ~Eliminar todas las restricciones de clase en armas (Usabilidad de Objetos)~
+@1001 = ~Todas las clases pueden usar todas las armas (Usabilidad de Clase / Monjes excluidos)~
+
+@101  = ~Opciones Universales de Armas (Sin restricciones de clase, Monjes y Kensai excluidos)~
+@1010 = ~Competencias Universales: Mínimo 1 Punto (Competente)~
+@1020 = ~Competencias Universales: Mínimo 2 Puntos (Especializado)~
+@1030 = ~Competencias Universales: Mínimo 3 Puntos (Maestría)~
+@1040 = ~Competencias Universales: Mínimo 4 Puntos (Alta Maestría)~
+@1050 = ~Competencias Universales: Mínimo 5 Puntos (Gran Maestría)~
+@1500 = ~Límites de Estilos de Combate Eliminados (2/2/2/3 [Todas las Clases] Monjes y Kensai excluidos)~
+
+@200  = ~Opciones Avanzadas de Armas (Restricciones de Clase Estándar)~
+@2020 = ~Restricciones Estándar: Máximo 2 Puntos (Especializado)~
+@2030 = ~Restricciones Estándar: Máximo 3 Puntos (Maestría)~
+@2040 = ~Restricciones Estándar: Máximo 4 Puntos (Alta Maestría)~
+@2050 = ~Restricciones Estándar: Máximo 5 Puntos (Gran Maestría)~
+
+@9000 = ~Este componente requiere Enhanced Editions o EET.~
+@9001 = ~Solo se puede instalar una opción de Competencia Universal.~

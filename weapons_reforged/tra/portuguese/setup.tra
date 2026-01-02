@@ -1,0 +1,20 @@
+@100  = ~Armas Reforjadas – Opções Centrais~
+@1000 = ~Remover todas as restrições de classe para armas (Usabilidade de Itens)~
+@1001 = ~Todas as classes podem usar todas as armas (Usabilidade de Classe / Monges excluídos)~
+
+@101  = ~Opções Universais de Armas (Sem restrições de classe, Monges e Kensai excluídos)~
+@1010 = ~Proficiências Universais: Mínimo 1 Ponto (Proficiente)~
+@1020 = ~Proficiências Universais: Mínimo 2 Pontos (Especializado)~
+@1030 = ~Proficiências Universais: Mínimo 3 Pontos (Maestria)~
+@1040 = ~Proficiências Universais: Mínimo 4 Pontos (Alta Maestria)~
+@1050 = ~Proficiências Universais: Mínimo 5 Pontos (Grande Maestria)~
+@1500 = ~Limites de Estilo de Combate Removidos (2/2/2/3 [Todas as Classes] Monges e Kensai excluídos)~
+
+@200  = ~Opções Avançadas de Armas (Restrições de Classe Padrão)~
+@2020 = ~Restrições Padrão: Máximo 2 Pontos (Especializado)~
+@2030 = ~Restrições Padrão: Máximo 3 Pontos (Maestria)~
+@2040 = ~Restrições Padrão: Máximo 4 Pontos (Alta Maestria)~
+@2050 = ~Restrições Padrão: Máximo 5 Pontos (Grande Maestria)~
+
+@9000 = ~Este componente requer Enhanced Editions ou EET.~
+@9001 = ~Apenas uma opção de Proficiência Universal pode ser instalada.~

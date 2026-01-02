@@ -1,0 +1,72 @@
+// universal_profs_core.tpa
+// Production version with auto-detected MONK/KENSAI columns
+
+DEFINE_PATCH_FUNCTION ~universal_profs_apply_min_pips~
+  INT_VAR
+    min_pips = 1
+BEGIN
+  COUNT_2DA_COLS cols
+  COUNT_2DA_ROWS cols rows
+
+  SET col_start = 4
+  SET first_row = (0 - 1)
+  SET last_row  = (0 - 1)
+
+  // Auto-detect MONK and KENSAI columns
+  SET monk_col   = (0 - 1)
+  SET kensai_col = (0 - 1)
+
+  FOR (c = 0; c < cols; ++c) BEGIN
+    READ_2DA_ENTRY 0 c cols header_val
+
+    PATCH_IF (~%header_val%~ STRING_EQUAL_CASE ~MONK~) BEGIN
+      SET monk_col = c
+    END
+
+    PATCH_IF (~%header_val%~ STRING_EQUAL_CASE ~KENSAI~) BEGIN
+      SET kensai_col = c
+    END
+  END
+
+  // Identify weapon rows: BASTARDSWORD → SLING
+  FOR (r = 0; r < rows; ++r) BEGIN
+    READ_2DA_ENTRY r 0 cols row_label
+
+    PATCH_IF (~%row_label%~ STRING_EQUAL_CASE ~BASTARDSWORD~) BEGIN
+      SET first_row = r
+    END
+
+    PATCH_IF (~%row_label%~ STRING_EQUAL_CASE ~SLING~) BEGIN
+      SET last_row = r
+    END
+  END
+
+  // Execution
+  PATCH_IF (first_row >= 0 AND last_row >= first_row) BEGIN
+
+    FOR (curr_r = first_row; curr_r <= last_row; ++curr_r) BEGIN
+      FOR (curr_c = col_start; curr_c < cols; ++curr_c) BEGIN
+
+        READ_2DA_ENTRY curr_r curr_c cols val
+
+        PATCH_IF (IS_AN_INT val) BEGIN
+          SET val_int = val
+
+          // MONK / KENSAI zero-preserve rule
+          PATCH_IF ((curr_c = monk_col OR curr_c = kensai_col) AND val_int = 0) BEGIN
+            // preserve zero
+          END ELSE BEGIN
+
+            // normal behavior: raise anything below min_pips
+            PATCH_IF (val_int < min_pips) BEGIN
+              SET_2DA_ENTRY curr_r curr_c cols ~%min_pips%~
+            END
+
+          END
+        END
+
+      END
+    END
+
+  END
+END

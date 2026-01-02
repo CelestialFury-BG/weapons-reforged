@@ -1,0 +1,288 @@
+BACKUP ~weapons_reforged/backup~
+AUTHOR ~/u/CelestialFury (concept inspired by Ashes of Embers by Ghreyfain)~ // Best way to contact me is through Reddit chat
+VERSION ~v1.0~
+
+LANGUAGE ~American English~
+         ~english~
+         ~weapons_reforged/tra/english/setup.tra~
+LANGUAGE ~Italiano~
+         ~italian~
+         ~weapons_reforged/tra/english/setup.tra~
+         ~weapons_reforged/tra/italian/setup.tra~
+LANGUAGE ~Deutsche Sprache~
+         ~german~
+         ~weapons_reforged/tra/english/setup.tra~
+         ~weapons_reforged/tra/german/setup.tra~
+LANGUAGE ~Francais~
+         ~french~
+         ~weapons_reforged/tra/english/setup.tra~
+         ~weapons_reforged/tra/french/setup.tra~
+LANGUAGE ~Portuguese~
+         ~portuguese~
+         ~weapons_reforged/tra/english/setup.tra~
+         ~weapons_reforged/tra/portuguese/setup.tra~
+LANGUAGE ~Polski~
+         ~polski~
+         ~weapons_reforged/tra/english/setup.tra~
+         ~weapons_reforged/tra/polski/setup.tra~
+LANGUAGE ~Ukrainian~
+         ~ukrainian~
+         ~weapons_reforged/tra/english/setup.tra~
+         ~weapons_reforged/tra/ukrainian/setup.tra~
+LANGUAGE ~Castellano~
+         ~spanish~
+         ~weapons_reforged/tra/english/setup.tra~
+         ~weapons_reforged/tra/spanish/setup.tra~
+
+
+
+// ------------------------------------------------------------
+// GROUP: Weapons Reforged - Core Rules
+// ------------------------------------------------------------
+
+// 1. Remove All Class-based Restrictions on Weapons (Item Usability)
+BEGIN @1000
+GROUP @100
+INCLUDE ~weapons_reforged/components/class_restrictions_weapons.tpa~
+
+// 2. All Classes Can Use All Weapons
+BEGIN @1001
+GROUP @100
+REQUIRE_PREDICATE (GAME_IS ~bgee bg2ee eet eet_mod~) @9000
+REQUIRE_PREDICATE (FILE_EXISTS_IN_GAME ~clasweap.2da~) @9000
+INCLUDE ~weapons_reforged/components/all_weapons.tpa~
+
+// -----------------------------------------------------------------------------
+// Universal Proficiency Options (Select only one option)
+// -----------------------------------------------------------------------------
+
+//PATCH_INCLUDE ~weapons_reforged/components/universal_profs_core_debug.tpa~
+
+// Minimum 1 Pips
+BEGIN @1010
+SUBCOMPONENT @101
+GROUP @101
+REQUIRE_PREDICATE (NOT MOD_IS_INSTALLED ~weapons_reforged~ 1020) @9001
+REQUIRE_PREDICATE (NOT MOD_IS_INSTALLED ~weapons_reforged~ 1030) @9001
+REQUIRE_PREDICATE (NOT MOD_IS_INSTALLED ~weapons_reforged~ 1040) @9001
+REQUIRE_PREDICATE (NOT MOD_IS_INSTALLED ~weapons_reforged~ 1050) @9001
+
+INCLUDE ~weapons_reforged/components/universal_profs_core.tpa~ 
+INCLUDE ~weapons_reforged/components/zero_out_old_profs.tpa~ 
+
+COPY_EXISTING ~weapprof.2da~ ~override~
+  PATCH_IF (SOURCE_SIZE > 0) BEGIN
+    LAUNCH_PATCH_FUNCTION ~zero_out_old_profs~ END 
+    
+    LAUNCH_PATCH_FUNCTION ~universal_profs_apply_min_pips~ 
+      INT_VAR 
+        min_pips = 1 
+    END 
+  END 
+BUT_ONLY_IF_IT_CHANGES
+
+
+// Minimum 2 Pips
+BEGIN @1020
+SUBCOMPONENT @101
+GROUP @101
+REQUIRE_PREDICATE (NOT MOD_IS_INSTALLED ~weapons_reforged~ 1010) @9001
+REQUIRE_PREDICATE (NOT MOD_IS_INSTALLED ~weapons_reforged~ 1030) @9001
+REQUIRE_PREDICATE (NOT MOD_IS_INSTALLED ~weapons_reforged~ 1040) @9001
+REQUIRE_PREDICATE (NOT MOD_IS_INSTALLED ~weapons_reforged~ 1050) @9001
+
+INCLUDE ~weapons_reforged/components/universal_profs_core.tpa~ 
+INCLUDE ~weapons_reforged/components/zero_out_old_profs.tpa~ 
+
+COPY_EXISTING ~weapprof.2da~ ~override~
+  PATCH_IF (SOURCE_SIZE > 0) BEGIN
+    LAUNCH_PATCH_FUNCTION ~zero_out_old_profs~ END 
+    
+    LAUNCH_PATCH_FUNCTION ~universal_profs_apply_min_pips~ 
+      INT_VAR 
+        min_pips = 2 
+    END 
+  END 
+BUT_ONLY_IF_IT_CHANGES
+
+
+
+// Minimum 3 Pips
+BEGIN @1030
+SUBCOMPONENT @101
+GROUP @101
+REQUIRE_PREDICATE (NOT MOD_IS_INSTALLED ~weapons_reforged~ 1010) @9001
+REQUIRE_PREDICATE (NOT MOD_IS_INSTALLED ~weapons_reforged~ 1020) @9001
+REQUIRE_PREDICATE (NOT MOD_IS_INSTALLED ~weapons_reforged~ 1040) @9001
+REQUIRE_PREDICATE (NOT MOD_IS_INSTALLED ~weapons_reforged~ 1050) @9001
+
+INCLUDE ~weapons_reforged/components/universal_profs_core.tpa~ 
+INCLUDE ~weapons_reforged/components/zero_out_old_profs.tpa~ 
+
+COPY_EXISTING ~weapprof.2da~ ~override~
+  PATCH_IF (SOURCE_SIZE > 0) BEGIN
+    LAUNCH_PATCH_FUNCTION ~zero_out_old_profs~ END 
+    
+    LAUNCH_PATCH_FUNCTION ~universal_profs_apply_min_pips~ 
+      INT_VAR 
+        min_pips = 3 
+    END 
+  END 
+BUT_ONLY_IF_IT_CHANGES
+
+// Minimum 4 Pips
+BEGIN @1040
+SUBCOMPONENT @101
+GROUP @101
+REQUIRE_PREDICATE (NOT MOD_IS_INSTALLED ~weapons_reforged~ 1010) @9001
+REQUIRE_PREDICATE (NOT MOD_IS_INSTALLED ~weapons_reforged~ 1020) @9001
+REQUIRE_PREDICATE (NOT MOD_IS_INSTALLED ~weapons_reforged~ 1030) @9001
+REQUIRE_PREDICATE (NOT MOD_IS_INSTALLED ~weapons_reforged~ 1050) @9001
+
+INCLUDE ~weapons_reforged/components/universal_profs_core.tpa~ 
+INCLUDE ~weapons_reforged/components/zero_out_old_profs.tpa~
+
+COPY_EXISTING ~weapprof.2da~ ~override~
+  PATCH_IF (SOURCE_SIZE > 0) BEGIN
+    LAUNCH_PATCH_FUNCTION ~zero_out_old_profs~ END 
+    
+    LAUNCH_PATCH_FUNCTION ~universal_profs_apply_min_pips~ 
+      INT_VAR 
+        min_pips = 4 
+    END 
+  END 
+BUT_ONLY_IF_IT_CHANGES
+
+
+// Minimum 5 Pips
+BEGIN @1050
+SUBCOMPONENT @101
+GROUP @101
+REQUIRE_PREDICATE (NOT MOD_IS_INSTALLED ~weapons_reforged~ 1010) @9001
+REQUIRE_PREDICATE (NOT MOD_IS_INSTALLED ~weapons_reforged~ 1020) @9001
+REQUIRE_PREDICATE (NOT MOD_IS_INSTALLED ~weapons_reforged~ 1030) @9001
+REQUIRE_PREDICATE (NOT MOD_IS_INSTALLED ~weapons_reforged~ 1040) @9001
+
+INCLUDE ~weapons_reforged/components/universal_profs_core.tpa~ 
+INCLUDE ~weapons_reforged/components/zero_out_old_profs.tpa~ 
+
+COPY_EXISTING ~weapprof.2da~ ~override~
+  PATCH_IF (SOURCE_SIZE > 0) BEGIN
+    LAUNCH_PATCH_FUNCTION ~zero_out_old_profs~ END 
+    
+    LAUNCH_PATCH_FUNCTION ~universal_profs_apply_min_pips~ 
+      INT_VAR 
+        min_pips = 5 
+    END 
+  END 
+BUT_ONLY_IF_IT_CHANGES
+
+// -----------------------------------------------------------------------------
+// Class Restricted Options (Select only one option)
+// -----------------------------------------------------------------------------
+
+// Minimum 2 Pips
+BEGIN @2020
+SUBCOMPONENT @200
+GROUP @200
+REQUIRE_PREDICATE (NOT MOD_IS_INSTALLED ~weapons_reforged~ 2030) @9001
+REQUIRE_PREDICATE (NOT MOD_IS_INSTALLED ~weapons_reforged~ 2040) @9001
+REQUIRE_PREDICATE (NOT MOD_IS_INSTALLED ~weapons_reforged~ 2050) @9001
+
+INCLUDE ~weapons_reforged/components/class_restrictions_pips.tpa~ 
+INCLUDE ~weapons_reforged/components/zero_out_old_profs.tpa~ 
+
+COPY_EXISTING ~weapprof.2da~ ~override~
+  PATCH_IF (SOURCE_SIZE > 0) BEGIN
+    LAUNCH_PATCH_FUNCTION ~class_restrictions_pips~ END 
+    
+    LAUNCH_PATCH_FUNCTION ~zero_out_old_profs~ 
+      INT_VAR 
+        min_pips = 2
+    END 
+  END 
+BUT_ONLY_IF_IT_CHANGES
+
+// Minimum 3 Pips
+BEGIN @2030
+SUBCOMPONENT @200
+GROUP @200
+REQUIRE_PREDICATE (NOT MOD_IS_INSTALLED ~weapons_reforged~ 2020) @9001
+REQUIRE_PREDICATE (NOT MOD_IS_INSTALLED ~weapons_reforged~ 2040) @9001
+REQUIRE_PREDICATE (NOT MOD_IS_INSTALLED ~weapons_reforged~ 2050) @9001
+
+INCLUDE ~weapons_reforged/components/class_restrictions_pips.tpa~ 
+INCLUDE ~weapons_reforged/components/zero_out_old_profs.tpa~ 
+
+COPY_EXISTING ~weapprof.2da~ ~override~
+  PATCH_IF (SOURCE_SIZE > 0) BEGIN
+    LAUNCH_PATCH_FUNCTION ~class_restrictions_pips~ END 
+    
+    LAUNCH_PATCH_FUNCTION ~zero_out_old_profs~ 
+      INT_VAR 
+        min_pips = 3
+    END 
+  END 
+BUT_ONLY_IF_IT_CHANGES
+
+// Minimum 4 Pips
+BEGIN @2040
+SUBCOMPONENT @200
+GROUP @200
+REQUIRE_PREDICATE (NOT MOD_IS_INSTALLED ~weapons_reforged~ 2020) @9001
+REQUIRE_PREDICATE (NOT MOD_IS_INSTALLED ~weapons_reforged~ 2030) @9001
+REQUIRE_PREDICATE (NOT MOD_IS_INSTALLED ~weapons_reforged~ 2050) @9001
+
+INCLUDE ~weapons_reforged/components/class_restrictions_pips.tpa~ 
+INCLUDE ~weapons_reforged/components/zero_out_old_profs.tpa~ 
+
+COPY_EXISTING ~weapprof.2da~ ~override~
+  PATCH_IF (SOURCE_SIZE > 0) BEGIN
+    LAUNCH_PATCH_FUNCTION ~class_restrictions_pips~ END 
+    
+    LAUNCH_PATCH_FUNCTION ~zero_out_old_profs~ 
+      INT_VAR 
+        min_pips = 4 
+    END 
+  END 
+BUT_ONLY_IF_IT_CHANGES
+
+
+// Minimum 5 Pips
+BEGIN @2050
+SUBCOMPONENT @200
+GROUP @200
+REQUIRE_PREDICATE (NOT MOD_IS_INSTALLED ~weapons_reforged~ 2020) @9001
+REQUIRE_PREDICATE (NOT MOD_IS_INSTALLED ~weapons_reforged~ 2030) @9001
+REQUIRE_PREDICATE (NOT MOD_IS_INSTALLED ~weapons_reforged~ 2040) @9001
+
+INCLUDE ~weapons_reforged/components/class_restrictions_pips.tpa~ 
+INCLUDE ~weapons_reforged/components/zero_out_old_profs.tpa~ 
+
+COPY_EXISTING ~weapprof.2da~ ~override~
+  PATCH_IF (SOURCE_SIZE > 0) BEGIN
+    LAUNCH_PATCH_FUNCTION ~class_restrictions_pips~ END 
+    
+    LAUNCH_PATCH_FUNCTION ~zero_out_old_profs~ 
+      INT_VAR 
+        min_pips = 5 
+    END 
+  END 
+BUT_ONLY_IF_IT_CHANGES
+
+// -----------------------------------------------------------------------------
+// Max Out the Weapon Style Options 
+// -----------------------------------------------------------------------------
+
+BEGIN @1500
+
+INCLUDE ~weapons_reforged/components/style_profs_apply_caps.tpa~
+
+COPY_EXISTING ~weapprof.2da~ ~override~
+  PATCH_IF (SOURCE_SIZE > 0) BEGIN
+    LAUNCH_PATCH_FUNCTION ~style_profs_apply_caps~
+    END
+  END
+BUT_ONLY_IF_IT_CHANGES
+
+// AT_INTERACTIVE_EXIT ~view weapons_reforged/readme_weapons_reforged.md~

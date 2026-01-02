@@ -1,0 +1,20 @@
+@100  = ~Waffen Neu geschmiedet – Kernoptionen~
+@1000 = ~Alle klassenbasierten Waffenbeschränkungen entfernen (Gegenstandsbenutzbarkeit)~
+@1001 = ~Alle Klassen können alle Waffen benutzen (Klassenbenutzbarkeit / Mönche ausgeschlossen)~
+
+@101  = ~Universelle Waffenoptionen (Keine Klassenbeschränkungen, Mönche und Kensai ausgeschlossen)~
+@1010 = ~Universelle Fertigkeiten: Minimum 1 Punkt (Geübt)~
+@1020 = ~Universelle Fertigkeiten: Minimum 2 Punkte (Spezialisiert)~
+@1030 = ~Universelle Fertigkeiten: Minimum 3 Punkte (Meisterschaft)~
+@1040 = ~Universelle Fertigkeiten: Minimum 4 Punkte (Hohe Meisterschaft)~
+@1050 = ~Universelle Fertigkeiten: Minimum 5 Punkte (Großmeisterschaft)~
+@1500 = ~Begrenzungen der Kampfstil-Fertigkeiten entfernt (2/2/2/3 [Alle Klassen] Mönche und Kensai ausgeschlossen)~
+
+@200  = ~Erweiterte Waffenoptionen (Standard-Klassenbeschränkungen)~
+@2020 = ~Standardbeschränkungen: Maximum 2 Punkte (Spezialisiert)~
+@2030 = ~Standardbeschränkungen: Maximum 3 Punkte (Meisterschaft)~
+@2040 = ~Standardbeschränkungen: Maximum 4 Punkte (Hohe Meisterschaft)~
+@2050 = ~Standardbeschränkungen: Maximum 5 Punkte (Großmeisterschaft)~
+
+@9000 = ~Diese Komponente erfordert die Enhanced Editions oder EET.~
+@9001 = ~Nur eine Option für Universelle Fertigkeiten kann installiert werden.~

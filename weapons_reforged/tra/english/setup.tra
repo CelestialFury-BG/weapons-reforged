@@ -1,0 +1,23 @@
+// setup.tra
+
+@100  = ~Weapons Reforged - Core Options~
+@1000 = ~Remove All Class-based Restrictions on Weapons (Item Usability)~
+@1001 = ~All Classes Can Use All Weapons (Class Usability/Monks Excluded)~
+
+@101  = ~Universal Weapon Options (No Class Restrictions, Monks and Kensai excluded)~
+@1010 = ~Universal Proficiencies: Minimum 1 Pip (Proficient)~
+@1020 = ~Universal Proficiencies: Minimum 2 Pips (Specialized)~
+@1030 = ~Universal Proficiencies: Minimum 3 Pips (Mastery)~
+@1040 = ~Universal Proficiencies: Minimum 4 Pips (High Mastery)~
+@1050 = ~Universal Proficiencies: Minimum 5 Pips (Grand Mastery)~
+@1500 = ~Fighting Style Proficiency Caps Removed (2/2/2/3 [All Classes] Monks and Kensai are excluded)~
+
+@200 = ~Enhanced Weapon Options (Standard Class Restrictions)~
+// No Need for 1 Pip option, that's in the game by default
+@2020 = ~Standard Class Restrictions: Maximum 2 Pips (Specialized)~
+@2030 = ~Standard Class Restrictions: Maximum 3 Pips (Mastery)~
+@2040 = ~Standard Class Restrictions: Maximum 4 Pips (High Mastery)~
+@2050 = ~Standard Class Restrictions: Maximum 5 Pips (Grand Mastery)~
+
+@9000 = ~This component requires Enhanced Editions or EET.~
+@9001 = ~Only one Universal Proficiency option may be installed.~

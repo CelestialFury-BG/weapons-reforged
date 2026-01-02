@@ -1,0 +1,42 @@
+// zero_out_old_profs.tpa
+// Production version: clears obsolete proficiency rows LARGE_SWORD → MISSILE
+
+DEFINE_PATCH_FUNCTION ~zero_out_old_profs~
+BEGIN
+  COUNT_2DA_COLS cols
+  COUNT_2DA_ROWS cols rows
+
+  SET col_start = 4
+  SET first_row = (0 - 1)
+  SET last_row  = (0 - 1)
+
+  // Identify LARGE_SWORD → MISSILE range
+  FOR (r = 0; r < rows; ++r) BEGIN
+    READ_2DA_ENTRY r 0 cols row_label
+
+    PATCH_IF (~%row_label%~ STRING_EQUAL_CASE ~LARGE_SWORD~) BEGIN
+      SET first_row = r
+    END
+
+    PATCH_IF (~%row_label%~ STRING_EQUAL_CASE ~MISSILE~) BEGIN
+      SET last_row = r
+    END
+  END
+
+  // Execution
+  PATCH_IF (first_row >= 0 AND last_row >= first_row) BEGIN
+    FOR (curr_r = first_row; curr_r <= last_row; ++curr_r) BEGIN
+      FOR (curr_c = col_start; curr_c < cols; ++curr_c) BEGIN
+
+        READ_2DA_ENTRY curr_r curr_c cols val
+
+        PATCH_IF (IS_AN_INT val) BEGIN
+          PATCH_IF (val > 0) BEGIN
+            SET_2DA_ENTRY curr_r curr_c cols ~0~
+          END
+        END
+
+      END
+    END
+  END
+END

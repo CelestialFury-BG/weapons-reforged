@@ -1,0 +1,47 @@
+DEFINE_PATCH_FUNCTION ~style_profs_apply_caps~
+BEGIN
+  COUNT_2DA_COLS cols
+  COUNT_2DA_ROWS cols rows
+
+  SET col_kensai = (0 - 1)
+  SET col_monk   = (0 - 1)
+  SET col_start  = 4 
+
+  // Detect column indices for restricted kits
+  FOR (c = 1; c < cols; c += 1) BEGIN
+    READ_2DA_ENTRY 0 (c - 1) (cols - 1) header
+    PATCH_IF (~%header%~ STRING_EQUAL_CASE ~KENSAI~) BEGIN 
+      SET col_kensai = c 
+    END
+    PATCH_IF (~%header%~ STRING_EQUAL_CASE ~MONK~)   BEGIN 
+      SET col_monk = c 
+    END
+  END
+
+  // Only proceed if critical columns were identified
+  PATCH_IF (col_kensai >= 0 AND col_monk >= 0) BEGIN
+    FOR (r = 0; r < rows; r += 1) BEGIN
+      READ_2DA_ENTRY r 0 cols row_label
+      
+      SET target_val = (0 - 1)
+      PATCH_IF (~%row_label%~ STRING_EQUAL_CASE ~2HANDED~)        BEGIN SET target_val = 2 END
+      PATCH_IF (~%row_label%~ STRING_EQUAL_CASE ~SWORDANDSHIELD~) BEGIN SET target_val = 2 END
+      PATCH_IF (~%row_label%~ STRING_EQUAL_CASE ~SINGLEWEAPON~)   BEGIN SET target_val = 2 END
+      PATCH_IF (~%row_label%~ STRING_EQUAL_CASE ~2WEAPON~)        BEGIN SET target_val = 3 END
+
+      PATCH_IF (target_val > 0) BEGIN
+        FOR (c = col_start; c < cols; c += 1) BEGIN
+          // Skip restricted kit columns
+          PATCH_IF (c != col_kensai AND c != col_monk) BEGIN
+            READ_2DA_ENTRY r c cols current_val
+            PATCH_IF (IS_AN_INT current_val AND current_val != target_val) BEGIN
+              SET_2DA_ENTRY r c cols ~%target_val%~
+            END
+          END
+        END
+      END
+    END
+  END
+
+  PRETTY_PRINT_2DA
+END
