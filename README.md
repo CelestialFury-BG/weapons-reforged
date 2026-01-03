@@ -170,6 +170,6 @@ Thanks to the modding community for documentation, testing, and tool support.
 
 ## Version History
 
-**v1.0**  
+**v1.0.1**  
 Initial release with full modular architecture, universal proficiency system, class‑restricted proficiency system, weapon usability cleanup, and style cap removal.
 
