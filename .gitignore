@@ -1,0 +1,31 @@
+# Ignore Windows junk
+Thumbs.db
+Desktop.ini
+
+# Ignore macOS junk
+.DS_Store
+._*
+
+# Ignore temporary files
+*.tmp
+*.bak
+*.old
+
+# Ignore WeiDU backup folder
+backup/
+
+# Ignore WeiDU debug logs (optional)
+weidu_external/
+*.DEBUG
+
+# Ignore Project Infinity temp files
+pi_temp/
+pi_backup/
+
+# Ignore build artifacts
+*.zip
+*.7z
+*.rar
+
+# Ignore icon cache
+Icon?
