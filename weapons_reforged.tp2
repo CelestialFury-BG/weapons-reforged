@@ -194,11 +194,11 @@ INCLUDE ~weapons_reforged/components/zero_out_old_profs.tpa~
 
 COPY_EXISTING ~weapprof.2da~ ~override~
   PATCH_IF (SOURCE_SIZE > 0) BEGIN
-    LAUNCH_PATCH_FUNCTION ~class_restrictions_pips~ END 
+    LAUNCH_PATCH_FUNCTION ~zero_out_old_profs~ END 
     
-    LAUNCH_PATCH_FUNCTION ~zero_out_old_profs~ 
+    LAUNCH_PATCH_FUNCTION ~class_restrictions_pips~ 
       INT_VAR 
-        min_pips = 2
+        min_pips = 2 
     END 
   END 
 BUT_ONLY_IF_IT_CHANGES
@@ -216,11 +216,11 @@ INCLUDE ~weapons_reforged/components/zero_out_old_profs.tpa~
 
 COPY_EXISTING ~weapprof.2da~ ~override~
   PATCH_IF (SOURCE_SIZE > 0) BEGIN
-    LAUNCH_PATCH_FUNCTION ~class_restrictions_pips~ END 
+    LAUNCH_PATCH_FUNCTION ~zero_out_old_profs~ END 
     
-    LAUNCH_PATCH_FUNCTION ~zero_out_old_profs~ 
+    LAUNCH_PATCH_FUNCTION ~class_restrictions_pips~ 
       INT_VAR 
-        min_pips = 3
+        min_pips = 3 
     END 
   END 
 BUT_ONLY_IF_IT_CHANGES
@@ -238,15 +238,14 @@ INCLUDE ~weapons_reforged/components/zero_out_old_profs.tpa~
 
 COPY_EXISTING ~weapprof.2da~ ~override~
   PATCH_IF (SOURCE_SIZE > 0) BEGIN
-    LAUNCH_PATCH_FUNCTION ~class_restrictions_pips~ END 
+    LAUNCH_PATCH_FUNCTION ~zero_out_old_profs~ END 
     
-    LAUNCH_PATCH_FUNCTION ~zero_out_old_profs~ 
+    LAUNCH_PATCH_FUNCTION ~class_restrictions_pips~ 
       INT_VAR 
         min_pips = 4 
     END 
   END 
 BUT_ONLY_IF_IT_CHANGES
-
 
 // Minimum 5 Pips
 BEGIN @2050
@@ -261,9 +260,9 @@ INCLUDE ~weapons_reforged/components/zero_out_old_profs.tpa~
 
 COPY_EXISTING ~weapprof.2da~ ~override~
   PATCH_IF (SOURCE_SIZE > 0) BEGIN
-    LAUNCH_PATCH_FUNCTION ~class_restrictions_pips~ END 
+    LAUNCH_PATCH_FUNCTION ~zero_out_old_profs~ END 
     
-    LAUNCH_PATCH_FUNCTION ~zero_out_old_profs~ 
+    LAUNCH_PATCH_FUNCTION ~class_restrictions_pips~ 
       INT_VAR 
         min_pips = 5 
     END 
