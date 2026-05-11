@@ -162,7 +162,7 @@ These files are not required for gameplay and are provided for transparency and 
 ## Credits
 
 **Author:** Celestial Fury  
-Best contact: Reddit chat
+Best contact: celestialfury.bg@gmail.com
 
 Thanks to the modding community for documentation, testing, and tool support.
 
