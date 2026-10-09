@@ -10,9 +10,9 @@
   "sum": "Modular overhaul of weapon usability and proficiency rules for EE/EET. Provides universal weapon access, proficiency minimums, class-restricted proficiency options, and fighting-style cap removal.",
   "tags": ["tweak", "class", "item"],
   "ph": ["BG1", "SoD", "SoA", "ToB"],
-  "no": "Only one Universal Proficiency option (Min 1-5 Pips) and one Class-Restricted option (Min 2-5 Pips) may be installed at a time. Install before SCS, Tweaks Anthology, and EET_End. If using item-pack mods, install them first so the usability cleanup catches new weapons.",
+  "no": "Two valid install positions. Recommended (late): install after Sword Coast Stratagems and Tweaks Anthology, before EET_End — this ensures the item usability cleanup and clasweap.2da patch catch every weapon and kit added by earlier mods, and Weapons Reforged's pip minimums become the authoritative weapprof.2da state. Alternative (early): install before SCS and cdtweaks if you want another proficiency mod (Tweaks Anthology #2160/#2200/#2280, SCS IWD-proficiencies, Combat Skills & Proficiencies, Might & Guile, Skills and Proficiencies) to win on weapprof.2da instead. Only one Universal Proficiency option (Min 1-5 Pips) and one Class-Restricted option (Min 2-5 Pips) may be installed at a time. Install item-pack mods before Weapons Reforged regardless of approach.",
   "ord": 770,
-  "ic": "Mods that rewrite weapprof.2da or hard-patch item usability after this mod will override its changes.",
+  "ic": "Install-position sensitive. The item usability cleanup only affects items that exist at install time; the clasweap.2da patch only affects class rows present at install time; the weapprof.2da changes are overwritten cell-by-cell by any proficiency mod that installs later. See install notes for the two recommended approaches.",
   "rq": "BGEE, BG2EE, or EET",
   "co": [
     {
@@ -25,7 +25,7 @@
       "wq": "exact",
       "grn": "Weapons Reforged - Core Rules",
       "tg": ["rec"],
-      "no": "Clears class, race, and kit restrictions from all weapon items while preserving alignment restrictions. Uses category-based detection (weapon type byte) so only real weapons are affected."
+      "no": "Clears class, race, and kit restrictions from all weapon items while preserving alignment restrictions. Uses category-based detection (weapon type byte) so only real weapons are affected. Patches only items that exist at install time — install late to catch weapons added by other mods."
     },
     {
       "n": "All Classes Can Use All Weapons (Monks Excluded)",
@@ -37,7 +37,7 @@
       "wq": "exact",
       "grn": "Weapons Reforged - Core Rules",
       "games": ["bgee", "bg2ee", "eet"],
-      "no": "Patches clasweap.2da so every class except Monks has full access to all weapon categories."
+      "no": "Patches clasweap.2da so every class except Monks has full access to all weapon categories. Patches only class rows that exist at install time — install late to catch kits added by other mods."
     },
     {
       "n": "Minimum 1 Pip (Proficient)",
@@ -177,17 +177,27 @@
       "with": "cdtweaks",
       "withId": 247,
       "severity": "soft",
-      "reason": "Tweaks Anthology's proficiency components (Alter Weapon Proficiency System #2160, Multi-Class Grandmastery #2200, Grandmastery #2280) patch weapprof.2da. Install Weapons Reforged first, then choose either its proficiency options or cdtweaks' — installing both leads to the second one winning cell-by-cell.",
+      "reason": "Tweaks Anthology's proficiency components (#2160 Alter Weapon Proficiency System, #2200 Multi-Class Grandmastery, #2280 Grandmastery) also patch weapprof.2da. Whichever mod installs later wins cell-by-cell. For the recommended late-install approach, place Weapons Reforged after cdtweaks and its pip changes become the authoritative state. For an early install, cdtweaks' proficiency system takes precedence.",
       "myComps": "#2-10 Proficiency options",
       "theirComps": "#2160 Alter Weapon Proficiency System / #2200 / #2280",
       "orderOnly": true,
-      "evidenceLevel": "speculative"
+      "evidenceLevel": "mechanism-verified"
+    },
+    {
+      "with": "stratagems",
+      "withId": 341,
+      "severity": "soft",
+      "reason": "SCS's core AI reads weapprof.2da at runtime, so its install position relative to Weapons Reforged is neutral for AI behavior. Only the SCS IWD-proficiencies component patches the table at install time — that component follows the same cell-by-cell precedence rule as cdtweaks. Install Weapons Reforged after SCS for the recommended late install.",
+      "myComps": "#2-10 Proficiency options",
+      "theirComps": "IWD-proficiencies component (if used)",
+      "orderOnly": true,
+      "evidenceLevel": "mechanism-verified"
     },
     {
       "with": "Combat_Skill_Proficiencies",
       "withId": 345,
       "severity": "soft",
-      "reason": "Both mods restructure the weapon proficiency system. Install Weapons Reforged after Combat Skills & Proficiencies if you want its pip minimums to apply on top, or skip one of the proficiency-changing components.",
+      "reason": "Both mods restructure the weapon proficiency system. Whichever installs later wins on weapprof.2da. Install Weapons Reforged after Combat Skills & Proficiencies if you want its pip minimums to apply on top, or skip one of the proficiency-changing components.",
       "orderOnly": true,
       "evidenceLevel": "speculative"
     },
@@ -195,7 +205,7 @@
       "with": "might_and_guile",
       "withId": 335,
       "severity": "soft",
-      "reason": "Might & Guile overhauls proficiencies via its own system. Overlapping changes to weapprof.2da and weapon usability flags. Install Weapons Reforged first, or use only one mod's proficiency system.",
+      "reason": "Might & Guile overhauls proficiencies via its own system. Overlapping changes to weapprof.2da and weapon usability flags. Install Weapons Reforged first if you want Might & Guile's proficiency design to take precedence, or after if you want Weapons Reforged's pip minimums to be authoritative.",
       "orderOnly": true,
       "evidenceLevel": "speculative"
     },
@@ -203,7 +213,7 @@
       "with": "Skills_and_Proficiencies",
       "withId": 819,
       "severity": "soft",
-      "reason": "Both mods modify the weapon proficiency table (weapprof.2da). Last installed wins per cell. Choose one system for proficiency overhauls.",
+      "reason": "Both mods modify the weapon proficiency table (weapprof.2da). Last installed wins per cell. Choose one system for proficiency overhauls, or order deliberately so the desired system is the final word.",
       "orderOnly": true,
       "evidenceLevel": "speculative"
     }
@@ -229,6 +239,10 @@
     {
       "d": "2026-10-09",
       "m": "Added to catalog. Modernized per-mod metadata: content-aligned component layout with SUBCOMPONENT mutex groups, resolved group names for UI display, and corrected Minimum/Maximum language to match tp2 behavior."
+    },
+    {
+      "d": "2026-10-09",
+      "m": "Revised install guidance to document both valid approaches. Recommended default is now late install (after SCS and cdtweaks, before EET_End) to ensure the item usability cleanup and clasweap.2da patch catch every weapon and kit added by earlier mods. Early install remains supported for users who want another proficiency mod to win on weapprof.2da."
     }
   ]
 }
