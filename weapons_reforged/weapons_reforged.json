@@ -1,0 +1,234 @@
+{
+  "i": 951,
+  "sv": 1,
+  "t": "weapons_reforged",
+  "n": "Weapons Reforged",
+  "c": "PRE-TACTICAL TWEAKS",
+  "u": "https://github.com/CelestialFury-BG/weapons-reforged",
+  "a": "Celestial Fury",
+  "v": "1.0.1",
+  "sum": "Modular overhaul of weapon usability and proficiency rules for EE/EET. Provides universal weapon access, proficiency minimums, class-restricted proficiency options, and fighting-style cap removal.",
+  "tags": ["tweak", "class", "item"],
+  "ph": ["BG1", "SoD", "SoA", "ToB"],
+  "no": "Only one Universal Proficiency option (Min 1-5 Pips) and one Class-Restricted option (Min 2-5 Pips) may be installed at a time. Install before SCS, Tweaks Anthology, and EET_End. If using item-pack mods, install them first so the usability cleanup catches new weapons.",
+  "ord": 770,
+  "ic": "Mods that rewrite weapprof.2da or hard-patch item usability after this mod will override its changes.",
+  "rq": "BGEE, BG2EE, or EET",
+  "co": [
+    {
+      "n": "Remove All Class-based Restrictions on Weapons (Item Usability)",
+      "tp2n": "Remove All Class-based Restrictions on Weapons (Item Usability)",
+      "cn": 0,
+      "wf": "weapons_reforged",
+      "wp": "weapons_reforged\\weapons_reforged.tp2",
+      "wc": 0,
+      "wq": "exact",
+      "grn": "Weapons Reforged - Core Rules",
+      "tg": ["rec"],
+      "no": "Clears class, race, and kit restrictions from all weapon items while preserving alignment restrictions. Uses category-based detection (weapon type byte) so only real weapons are affected."
+    },
+    {
+      "n": "All Classes Can Use All Weapons (Monks Excluded)",
+      "tp2n": "All Classes Can Use All Weapons (Monks Excluded)",
+      "cn": 1,
+      "wf": "weapons_reforged",
+      "wp": "weapons_reforged\\weapons_reforged.tp2",
+      "wc": 1,
+      "wq": "exact",
+      "grn": "Weapons Reforged - Core Rules",
+      "games": ["bgee", "bg2ee", "eet"],
+      "no": "Patches clasweap.2da so every class except Monks has full access to all weapon categories."
+    },
+    {
+      "n": "Minimum 1 Pip (Proficient)",
+      "tp2n": "Minimum 1 Pip (Proficient)",
+      "cn": 2,
+      "wf": "weapons_reforged",
+      "wp": "weapons_reforged\\weapons_reforged.tp2",
+      "wc": 2,
+      "wq": "exact",
+      "g": "weapons_reforged_universal",
+      "scn": "Universal Proficiency Options",
+      "grn": "Universal Proficiency",
+      "tg": ["rec"],
+      "no": "Raises every class's proficiency in every weapon category to at least 1 pip. Monks and Kensai excluded."
+    },
+    {
+      "n": "Minimum 2 Pips (Specialized)",
+      "tp2n": "Minimum 2 Pips (Specialized)",
+      "cn": 3,
+      "wf": "weapons_reforged",
+      "wp": "weapons_reforged\\weapons_reforged.tp2",
+      "wc": 3,
+      "wq": "exact",
+      "g": "weapons_reforged_universal",
+      "scn": "Universal Proficiency Options",
+      "grn": "Universal Proficiency",
+      "no": "Raises every class's proficiency in every weapon category to at least 2 pips. Monks and Kensai excluded."
+    },
+    {
+      "n": "Minimum 3 Pips (Mastery)",
+      "tp2n": "Minimum 3 Pips (Mastery)",
+      "cn": 4,
+      "wf": "weapons_reforged",
+      "wp": "weapons_reforged\\weapons_reforged.tp2",
+      "wc": 4,
+      "wq": "exact",
+      "g": "weapons_reforged_universal",
+      "scn": "Universal Proficiency Options",
+      "grn": "Universal Proficiency",
+      "no": "Raises every class's proficiency in every weapon category to at least 3 pips. Monks and Kensai excluded."
+    },
+    {
+      "n": "Minimum 4 Pips (High Mastery)",
+      "tp2n": "Minimum 4 Pips (High Mastery)",
+      "cn": 5,
+      "wf": "weapons_reforged",
+      "wp": "weapons_reforged\\weapons_reforged.tp2",
+      "wc": 5,
+      "wq": "exact",
+      "g": "weapons_reforged_universal",
+      "scn": "Universal Proficiency Options",
+      "grn": "Universal Proficiency",
+      "no": "Raises every class's proficiency in every weapon category to at least 4 pips. Monks and Kensai excluded."
+    },
+    {
+      "n": "Minimum 5 Pips (Grand Mastery)",
+      "tp2n": "Minimum 5 Pips (Grand Mastery)",
+      "cn": 6,
+      "wf": "weapons_reforged",
+      "wp": "weapons_reforged\\weapons_reforged.tp2",
+      "wc": 6,
+      "wq": "exact",
+      "g": "weapons_reforged_universal",
+      "scn": "Universal Proficiency Options",
+      "grn": "Universal Proficiency",
+      "tg": ["adv"],
+      "no": "Raises every class's proficiency in every weapon category to 5 pips. Monks and Kensai excluded. Very powerful; consider carefully."
+    },
+    {
+      "n": "Minimum 2 Pips (Specialized)",
+      "tp2n": "Minimum 2 Pips (Specialized)",
+      "cn": 7,
+      "wf": "weapons_reforged",
+      "wp": "weapons_reforged\\weapons_reforged.tp2",
+      "wc": 7,
+      "wq": "exact",
+      "g": "weapons_reforged_class_restricted",
+      "scn": "Class-Restricted Proficiency Options",
+      "grn": "Class-Restricted Proficiency",
+      "tg": ["rec"],
+      "no": "Raises only the proficiency values that are already greater than zero for each class, to at least 2 pips. Preserves class restrictions and Monk/Kensai zeros."
+    },
+    {
+      "n": "Minimum 3 Pips (Mastery)",
+      "tp2n": "Minimum 3 Pips (Mastery)",
+      "cn": 8,
+      "wf": "weapons_reforged",
+      "wp": "weapons_reforged\\weapons_reforged.tp2",
+      "wc": 8,
+      "wq": "exact",
+      "g": "weapons_reforged_class_restricted",
+      "scn": "Class-Restricted Proficiency Options",
+      "grn": "Class-Restricted Proficiency",
+      "no": "Raises class-allowed proficiencies to at least 3 pips. Preserves restrictions and Monk/Kensai zeros."
+    },
+    {
+      "n": "Minimum 4 Pips (High Mastery)",
+      "tp2n": "Minimum 4 Pips (High Mastery)",
+      "cn": 9,
+      "wf": "weapons_reforged",
+      "wp": "weapons_reforged\\weapons_reforged.tp2",
+      "wc": 9,
+      "wq": "exact",
+      "g": "weapons_reforged_class_restricted",
+      "scn": "Class-Restricted Proficiency Options",
+      "grn": "Class-Restricted Proficiency",
+      "no": "Raises class-allowed proficiencies to at least 4 pips. Preserves restrictions and Monk/Kensai zeros."
+    },
+    {
+      "n": "Minimum 5 Pips (Grand Mastery)",
+      "tp2n": "Minimum 5 Pips (Grand Mastery)",
+      "cn": 10,
+      "wf": "weapons_reforged",
+      "wp": "weapons_reforged\\weapons_reforged.tp2",
+      "wc": 10,
+      "wq": "exact",
+      "g": "weapons_reforged_class_restricted",
+      "scn": "Class-Restricted Proficiency Options",
+      "grn": "Class-Restricted Proficiency",
+      "no": "Raises class-allowed proficiencies to 5 pips. Preserves restrictions and Monk/Kensai zeros."
+    },
+    {
+      "n": "Fighting Style Proficiency Caps Removed",
+      "tp2n": "Fighting Style Proficiency Caps Removed",
+      "cn": 11,
+      "wf": "weapons_reforged",
+      "wp": "weapons_reforged\\weapons_reforged.tp2",
+      "wc": 11,
+      "wq": "exact",
+      "tg": ["rec"],
+      "no": "Removes the vanilla style caps (2/2/2/3) for all classes except Monks and Kensai. Applies clean auto-detected caps to Two-Handed, Sword & Shield, Single-Weapon, and Two-Weapon styles."
+    }
+  ],
+  "conflicts": [],
+  "advisories": [
+    {
+      "with": "cdtweaks",
+      "withId": 247,
+      "severity": "soft",
+      "reason": "Tweaks Anthology's proficiency components (Alter Weapon Proficiency System #2160, Multi-Class Grandmastery #2200, Grandmastery #2280) patch weapprof.2da. Install Weapons Reforged first, then choose either its proficiency options or cdtweaks' — installing both leads to the second one winning cell-by-cell.",
+      "myComps": "#2-10 Proficiency options",
+      "theirComps": "#2160 Alter Weapon Proficiency System / #2200 / #2280",
+      "orderOnly": true,
+      "evidenceLevel": "speculative"
+    },
+    {
+      "with": "Combat_Skill_Proficiencies",
+      "withId": 345,
+      "severity": "soft",
+      "reason": "Both mods restructure the weapon proficiency system. Install Weapons Reforged after Combat Skills & Proficiencies if you want its pip minimums to apply on top, or skip one of the proficiency-changing components.",
+      "orderOnly": true,
+      "evidenceLevel": "speculative"
+    },
+    {
+      "with": "might_and_guile",
+      "withId": 335,
+      "severity": "soft",
+      "reason": "Might & Guile overhauls proficiencies via its own system. Overlapping changes to weapprof.2da and weapon usability flags. Install Weapons Reforged first, or use only one mod's proficiency system.",
+      "orderOnly": true,
+      "evidenceLevel": "speculative"
+    },
+    {
+      "with": "Skills_and_Proficiencies",
+      "withId": 819,
+      "severity": "soft",
+      "reason": "Both mods modify the weapon proficiency table (weapprof.2da). Last installed wins per cell. Choose one system for proficiency overhauls.",
+      "orderOnly": true,
+      "evidenceLevel": "speculative"
+    }
+  ],
+  "dependencies": [],
+  "langs": {
+    "en": 0,
+    "it": 1,
+    "de": 2,
+    "fr": 3,
+    "pt": 4,
+    "pl": 5,
+    "uk": 6,
+    "es": 7
+  },
+  "gh": {
+    "o": "CelestialFury-BG",
+    "r": "weapons-reforged"
+  },
+  "au": "https://www.reddit.com/user/celestialfury",
+  "dl": "https://github.com/CelestialFury-BG/weapons-reforged/releases",
+  "cl": [
+    {
+      "d": "2026-10-09",
+      "m": "Added to catalog. Modernized per-mod metadata: content-aligned component layout with SUBCOMPONENT mutex groups, resolved group names for UI display, and corrected Minimum/Maximum language to match tp2 behavior."
+    }
+  ]
+}
