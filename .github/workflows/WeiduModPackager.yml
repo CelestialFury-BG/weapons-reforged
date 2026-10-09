@@ -23,4 +23,4 @@ jobs:
       architecture: amd64
       suffix: version
       naming: tp2
-      tp2_name: 'weapons-reforged/weapons_reforged.tp2'
+      tp2_name: 'weapons_reforged/weapons_reforged.tp2'
